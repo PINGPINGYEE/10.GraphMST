@@ -17,11 +17,17 @@ void set_init(int n) // 초기화 함수
 
 int set_find(int curr) // search 함수
 {
-	if (parent[curr] == -1)
-		return curr;
-	while (parent[curr] != -1) curr = parent[curr];
-	return curr;
+    if (curr < 0 || curr >= MAX_VERTICES) {
+        fprintf(stderr, "\n");
+        exit(EXIT_FAILURE);
+    }
+
+    if (parent[curr] == -1)
+        return curr;
+    while (parent[curr] != -1) curr = parent[curr];
+    return curr;
 }
+
 
 
 // 두개의 원소가 속한 집합을 합친다.
